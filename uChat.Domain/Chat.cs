@@ -8,12 +8,12 @@ namespace uChat.Domain
 	[Table("Chats")]
 	public class Chat
 	{
-		public Guid ChatId { get; set; }
-		public Guid UserId { get; set; }
+		public string ChatId { get; set; }
+		public string UserId { get; set; }
 		public User User { get; set; }
 		public DateTime CreatedOn { get; set; }
 		public string Content { get; set; }
-		public Guid ChannelId { get; set; }
+		public string ChannelId { get; set; }
 		public Channel Channel { get; set; }
 	}
 }

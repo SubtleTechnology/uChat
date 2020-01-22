@@ -8,7 +8,7 @@ namespace uChat.Domain
 	[Table("Users")]
 	public class User
 	{
-		public Guid UserId { get; set; }
+		public string UserId { get; set; }
 		public DateTime CreatedOn { get; set; }
 		public string Name { get; set; }
 		public string PlayFabId { get; set; }

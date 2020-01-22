@@ -7,7 +7,7 @@ namespace uChat.Web.DTO
 {
 	public class User
 	{
-		public Guid UserId;
+		public string UserId;
 		public string Name;
 
 		public User(Domain.User u)

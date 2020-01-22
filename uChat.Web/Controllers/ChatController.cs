@@ -23,20 +23,26 @@ namespace uChat.Web.Controllers
 		}
 
 		[HttpGet("{channelId}")]
-		public List<DTO.Chat> GetChannel(Guid channelId)
+		async public Task<IActionResult> Get(string chatId)
 		{
-			var chatManager = new ChatManager();
-			var chats = chatManager.GetChannelSince(channelId, SqlDateTime.MinValue.Value);
-			var ret = (from c in chats select new DTO.Chat(c)).ToList();
-			return ret;
-		}
+			DTO.Chat ret = null;
 
-		[HttpGet("{channelId}/{since}")]
-		public List<DTO.Chat> GetChannelSince(Guid channelId, DateTime since)
-		{
-			var chatManager = new ChatManager();
-			var chats = chatManager.GetChannelSince(channelId, since);
-			return (from c in chats select new DTO.Chat(c)).ToList();
+			try
+			{
+				var chatManager = new ChatManager();
+				var chat = await chatManager.GetChat(chatId);
+				if (chat != null)
+					ret = new DTO.Chat(chat);
+			}
+			catch(Exception ex)
+			{
+				_logger.LogError("Chat - Get:" + ex.Message);
+			}
+
+			if (ret == null)
+				return NotFound();
+
+			return Ok(ret);
 		}
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,6 +17,11 @@ namespace uChat.Data.Sqlite
         public DbSet<User> Users { get; set; }
 		public DbSet<Chat> Chats { get; set; }
 
+        public static readonly Microsoft.Extensions.Logging.LoggerFactory _myLoggerFactory = 
+            new LoggerFactory(new[] { 
+                new Microsoft.Extensions.Logging.Debug.DebugLoggerProvider() 
+        });
+
         //public uChatDataContext()
         //{
         //    Database.EnsureCreated();
@@ -25,6 +31,7 @@ namespace uChat.Data.Sqlite
         {
             //optionsBuilder.UseSqlite(@"Data Source=uChatDB.sqlite3;Version=3;BinaryGUID=True;");
             optionsBuilder.UseSqlite(conn);
+            optionsBuilder.UseLoggerFactory(_myLoggerFactory);
         }
 
         public override void Dispose()

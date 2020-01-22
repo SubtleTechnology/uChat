@@ -8,7 +8,7 @@ namespace uChat.Domain
 	[Table("Channels")]
 	public class Channel
 	{
-		public Guid ChannelId { get; set; }
+		public string ChannelId { get; set; }
 		public DateTime CreatedOn { get; set; }
 		public string Name { get; set; }
 
