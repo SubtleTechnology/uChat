@@ -23,19 +23,20 @@ namespace uChat.Web.Controllers
 		}
 
 		[HttpGet("{channelId}")]
-		public IEnumerable<DTO.Chat> GetChannel(Guid channelId)
+		public List<DTO.Chat> GetChannel(Guid channelId)
 		{
 			var chatManager = new ChatManager();
 			var chats = chatManager.GetChannelSince(channelId, SqlDateTime.MinValue.Value);
-			return (from c in chats select new DTO.Chat(c));
+			var ret = (from c in chats select new DTO.Chat(c)).ToList();
+			return ret;
 		}
 
 		[HttpGet("{channelId}/{since}")]
-		public IEnumerable<DTO.Chat> GetChannelSince(Guid channelId, DateTime since)
+		public List<DTO.Chat> GetChannelSince(Guid channelId, DateTime since)
 		{
 			var chatManager = new ChatManager();
 			var chats = chatManager.GetChannelSince(channelId, since);
-			return (from c in chats select new DTO.Chat(c));
+			return (from c in chats select new DTO.Chat(c)).ToList();
 		}
     }
 }

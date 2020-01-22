@@ -9,5 +9,11 @@ namespace uChat.Web.DTO
 	{
 		public Guid ChannelId;
 		public string Name;
+
+		public Channel(Domain.Channel c)
+		{
+			ChannelId = c.ChannelId;
+			Name = c.Name;
+		}
 	}
 }

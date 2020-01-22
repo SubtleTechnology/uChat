@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace uChat.Web
 {
@@ -25,7 +26,11 @@ namespace uChat.Web
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllers();
+			services.AddControllers() //.AddJsonOptions(options => options.JsonSerializerOptions.JsonSerializerOptions.MaxDepth = 20);
+						//.AddMvc(option => option.EnableEndpointRouting = false)
+						 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+			             .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+						// switch back to Newtonsoft, I'm not adding get/set to all my fields just so it can serialize!
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,8 +40,6 @@ namespace uChat.Web
 			{
 				app.UseDeveloperExceptionPage();
 			}
-
-			app.UseHttpsRedirection();
 
 			app.UseRouting();
 

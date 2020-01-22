@@ -7,11 +7,12 @@ namespace uChat.Web.DTO
 {
 	public class Chat
 	{
-		public Guid ChatId { get; set; }
-		public User User { get; set; }
-		public DateTime CreatedOn { get; set; }
-		public string Content { get; set; }
-		public Guid ChannelId { get; set; }
+		public Guid ChatId;
+		public User User;
+		public DateTime CreatedOn;
+		public string Content;
+		public Guid ChannelId;
+		public Channel Channel;
 
 		public Chat(Domain.Chat c)
 		{
@@ -20,6 +21,7 @@ namespace uChat.Web.DTO
 			CreatedOn = c.CreatedOn;
 			Content = c.Content;
 			ChannelId = c.ChannelId;
+			Channel = new DTO.Channel(c.Channel);
 		}
 	}
 }
