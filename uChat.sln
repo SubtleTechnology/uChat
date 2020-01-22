@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uChat.gRPCService", "uChat.gRPCService\uChat.gRPCService.csproj", "{7B632429-2F49-490D-80BD-4AD5CA805D5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uChat.Data.Sqlite", "uChat.Data.Sqlite\uChat.Data.Sqlite.csproj", "{510126FF-9FC5-4E8B-B81A-072B2E6977DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uChat.Service", "uChat.Service\uChat.Service.csproj", "{6001A77F-5035-4838-A4A8-791C117E8BCA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D6A7B0E7-56F3-411B-8224-AA5DCFAC7988} = {D6A7B0E7-56F3-411B-8224-AA5DCFAC7988}
+		{510126FF-9FC5-4E8B-B81A-072B2E6977DF} = {510126FF-9FC5-4E8B-B81A-072B2E6977DF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uChat.Domain", "uChat.Domain\uChat.Domain.csproj", "{D6A7B0E7-56F3-411B-8224-AA5DCFAC7988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uChat.Web", "uChat.Web\uChat.Web.csproj", "{A5643E3B-C72B-4C31-8E64-6B72BBBC4D85}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6001A77F-5035-4838-A4A8-791C117E8BCA} = {6001A77F-5035-4838-A4A8-791C117E8BCA}
+		{D6A7B0E7-56F3-411B-8224-AA5DCFAC7988} = {D6A7B0E7-56F3-411B-8224-AA5DCFAC7988}
+		{510126FF-9FC5-4E8B-B81A-072B2E6977DF} = {510126FF-9FC5-4E8B-B81A-072B2E6977DF}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B632429-2F49-490D-80BD-4AD5CA805D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B632429-2F49-490D-80BD-4AD5CA805D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B632429-2F49-490D-80BD-4AD5CA805D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B632429-2F49-490D-80BD-4AD5CA805D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{510126FF-9FC5-4E8B-B81A-072B2E6977DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{510126FF-9FC5-4E8B-B81A-072B2E6977DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{510126FF-9FC5-4E8B-B81A-072B2E6977DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{510126FF-9FC5-4E8B-B81A-072B2E6977DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6001A77F-5035-4838-A4A8-791C117E8BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6001A77F-5035-4838-A4A8-791C117E8BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6001A77F-5035-4838-A4A8-791C117E8BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6001A77F-5035-4838-A4A8-791C117E8BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A7B0E7-56F3-411B-8224-AA5DCFAC7988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A7B0E7-56F3-411B-8224-AA5DCFAC7988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A7B0E7-56F3-411B-8224-AA5DCFAC7988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A7B0E7-56F3-411B-8224-AA5DCFAC7988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5643E3B-C72B-4C31-8E64-6B72BBBC4D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5643E3B-C72B-4C31-8E64-6B72BBBC4D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5643E3B-C72B-4C31-8E64-6B72BBBC4D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5643E3B-C72B-4C31-8E64-6B72BBBC4D85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A4FEB388-3338-4FBC-AD13-E719803CD38F}
+	EndGlobalSection
+EndGlobal

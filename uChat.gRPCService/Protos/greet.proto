@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "uChat.gRPCService";
+
+package chat;
+
+service uChat {
+  rpc Say (ChatRequest) returns (ChatReply);
+}
+
+message ChatRequest {
+  string message = 1;
+}
+
+message ChatReply {
+  string message = 1;
+}
