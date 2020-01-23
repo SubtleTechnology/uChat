@@ -16,6 +16,8 @@ namespace uChat.Data.Sqlite
         public DbSet<Channel> Channels { get; set; }
         public DbSet<User> Users { get; set; }
 		public DbSet<Chat> Chats { get; set; }
+        public DbSet<Mailbox> Mailboxes { get; set; }
+        public DbSet<Mail> Mails { get; set; }
 
         public static readonly Microsoft.Extensions.Logging.LoggerFactory _myLoggerFactory = 
             new LoggerFactory(new[] { 

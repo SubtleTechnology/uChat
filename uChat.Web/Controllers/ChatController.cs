@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,6 +12,7 @@ using uChat.Service;
 
 namespace uChat.Web.Controllers
 {
+	[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ChatController : ControllerBase
@@ -29,7 +31,7 @@ namespace uChat.Web.Controllers
 
 			try
 			{
-				var chatManager = new ChatManager();
+				var chatManager = new ChannelManager();
 				var chat = await chatManager.GetChat(chatId);
 				if (chat != null)
 					ret = new DTO.Chat(chat);
